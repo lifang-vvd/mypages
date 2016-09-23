@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+		<meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+        <title>我的主页</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+        <meta name="description" content="Fullscreen Slit Slider with CSS3 and jQuery" />
+        <meta name="keywords" content="slit slider, plugin, css3, transitions, jquery, fullscreen, autoplay" />
+        <meta name="author" content="Codrops" />
+        <link rel="stylesheet" type="text/css" href="css/style.css" />
+        <link rel="stylesheet" type="text/css" href="css/custom.css" />
+		<script type="text/javascript" src="js/modernizr.custom.79639.js"></script>
+		<script>
+			window.onload=function(){
+				var a=new sHover("sHoverItem","sIntro");
+				a.set({
+					slideSpeed:5,
+					opacityChange:true,
+					opacity:80
+				});
+				var clock=document.getElementsByClassName("clock")[0];
+				creatMark()
+				function creatMark(){
+					for(var i=0;i<60;i++){
+						if(i%5==0){
+							var w= 4,h=10
+						}else{
+							var w= 2,h=6
+						}
+						var div=document.createElement("div")
+						div.style.cssText="width:"+w+"px;height:"+h+"px;background:#000;position:absolute;left:0;top:0";
+						div.style.transform="translate("+(200-w)/2+"px,0) rotate("+i*6+"deg)"
+						div.style.transformOrigin="center 100px"
+						clock.appendChild(div);
+					}
+				}
+				var time=new Date();
+				var h=createP(6,40,"#000",time.getHours()*30+(time.getMinutes()*6)/12)
+				var m=createP(4,60,"#ccc",time.getMinutes()*6)
+				var s=createP(2,80,"red",time.getSeconds()*6)
+				setInterval(function(){
+					var time=new Date();
+					h.style.transform="translate("+(200-6)/2+"px,-100px) rotate("+(time.getHours()*30+(time.getMinutes()*6)/12)+"deg)"
+					m.style.transform="translate("+(200-4)/2+"px,-100px) rotate("+(time.getMinutes()*6)+"deg)"
+					s.style.transform="translate("+(200-2)/2+"px,-100px) rotate("+(time.getSeconds()*6)+"deg)"
+				},1000)
+				function createP(w,h,c,a){
+					var div=document.createElement("div")
+					div.style.cssText="width:"+w+"px;height:"+h+"px;background:"+c+";position:absolute;left:0;bottom:0; transform:translate("+(200-w)/2+"px,-100px) rotate("+a+"deg); transform-origin:center bottom"
+					clock.appendChild(div);
+					return div
+				}
+			}
+		</script>
+		<style>
+
+		</style>
+	</head>
+    <body>
+        
+        <div class="container demo-1">
+            <div id="slider" class="sl-slider-wrapper">
+
+				<div class="sl-slider">
+				
+					<div class="sl-slide bg-1" data-orientation="horizontal" data-slice1-rotation="-25" data-slice2-rotation="-25" data-slice1-scale="2" data-slice2-scale="2">
+						<div class="sl-slide-inner">
+							<div class="deco deco-pic1"><img src="images/zhaopian.jpg" alt=""></div>
+							<h2>我有一个梦想，我的梦想就是做自己。</h2>
+							<blockquote>
+								<p>热爱生命————我不去想，是否能够成功 ，既然选择了远方，便只顾风雨兼程。只要热爱生命 ，一切都在意料之中。</br>
+									热爱生活————不论从生活中得到多少。让我们因热爱而创造生活，不论自己还是他人享受。生活的收获是生活。</br>
+									做人如果没有梦想，那跟咸鱼有什么区别。
+								</p>
+								<cite>
+									It's my attitude.</cite>
+							</blockquote>
+						</div>
+					</div>
+					
+					<div class="sl-slide bg-2" data-orientation="vertical" data-slice1-rotation="10" data-slice2-rotation="-15" data-slice1-scale="1.5" data-slice2-scale="1.5">
+						<div class="sl-slide-inner">
+							<div class="deco deco-pic2">
+								<div class="deco-per1"><div class="clock"></div></div>
+								<div class="deco-per2">
+									<img src="images/glass.png" alt="" style="vertical-align: middle;">
+									<h4>基本信息</h4>
+									<p>姓名：李方 性别：男 </br>出生日：1991.06.07 籍贯：山西</p>
+								</div>
+								<div class="deco-per3">
+									<img src="images/hat.png" alt="" style="vertical-align: middle;">
+									<h4>毕业学校</h4>
+									<p>中北大学信息商务学院</p>
+								</div>
+								<div class="deco-per4">
+									<img src="images/book.png" alt="" style="vertical-align: middle;">
+									<h4>学历和院系</h4>
+									<p>本科 </br>电子信息工程系</p>
+								</div>
+								<div class="deco-per5">
+									<img src="images/tel.png" alt="" style="vertical-align: middle;">
+									<h4>联系方式</h4>
+									<p>邮箱：544616169@qq.com</br>电话：18335444925</p>
+								</div>
+							</div>
+							<blockquote><p style="font-size: 20px; position: relative; top: 130px; color: #fffacd;">我很简单，我想通过我的努力变的不“简单”。</p><cite>great hopes make great man.</cite></blockquote>
+						</div>
+					</div>
+					
+					<div class="sl-slide bg-3" data-orientation="horizontal" data-slice1-rotation="3" data-slice2-rotation="3" data-slice1-scale="2" data-slice2-scale="1">
+						<div class="sl-slide-inner">
+							<div class="deco deco-skills">
+								<p>HTML5</p>
+
+								<p>CSS3</p>
+
+								<p>JavaScript</p>
+
+								<p>JQuery</p>
+
+								<p>Ajax</p>
+
+								<p>Bootstrap</p>
+
+								<p>canvas</p>
+
+								<p>AngularJS</p>
+
+								<p>移动端</p>
+							</div>
+
+							<h2 class="deco-skillslf">
+								前端必备技能
+							</h2>
+							<blockquote><p>有足够强大的能力，才能支撑起梦想。用扎实的专业知识赋予设计稿新的生命，让他活起来。</p><cite>Skills.Heart.Life.Dream</cite></blockquote>
+						</div>
+					</div>
+					
+					<div class="sl-slide bg-4" data-orientation="vertical" data-slice1-rotation="-5" data-slice2-rotation="25" data-slice1-scale="2" data-slice2-scale="1">
+						<div class="sl-slide-inner">
+							<div class="container zuopinzhan">
+								<div id="item1" class="sHoverItem">
+									<img id="img1" src="images/taihuadichan.png">
+				<span id="intro1" class="sIntro">
+					<h2>太化地产</h2>
+
+					<button><a href="http://lifang.duapp.com">点击打开</a></button>
+				</span>
+								</div>
+								<div id="item2" class="sHoverItem">
+									<img src="images/huantengxieye.png">
+				<span class="sIntro">
+					<h2>欢腾鞋业</h2>
+
+					<button><a href="http://xiaoyaoqing.duapp.com">点击打开</a></button>
+				</span>
+								</div>
+								<div class="sHoverItem">
+									<img src="images/huaban.png">
+				<span class="sIntro">
+					<h2>画板</h2>
+					<button><a href="https://lifang-vvd.github.io/canvaspalette/">点击打开</a></button>
+				</span>
+								</div>
+								<div class="sHoverItem">
+									<img src="images/paokugame.png">
+				<span class="sIntro">
+					<h2>跑酷游戏</h2>
+
+					<button><a href="https://lifang-vvd.github.io/canva/ ">点击打开</a></button>
+				</span>
+								</div>
+								<div class="sHoverItem">
+									<img src="images/beiwanglu.png">
+				<span class="sIntro">
+					<h2>备忘录</h2>
+
+					<button><a href="https://lifang-vvd.github.io/todolist/">点击打开</a></button>
+				</span>
+								</div>
+								<div class="sHoverItem">
+									<img src="images/baiduyuqing.png">
+				<span class="sIntro">
+					<h2>百度舆情</h2>
+
+					<button><a href="https://lifang-vvd.github.io/baiduyuqing/">点击打开</a></button>
+				</span>
+								</div>
+								<div class="sHoverItem">
+									<img src="images/dianxinwu.png">
+				<span class="sIntro">
+					<h2>PS设计</h2>
+
+					<button><a href="https://lifang-vvd.github.io/cake/">点击打开</a></button>
+				</span>
+								</div>
+								<div class="sHoverItem">
+									<img src="images/daziyouxi.png">
+				<span class="sIntro">
+					<h2>打字游戏</h2>
+
+					<button><a href="https://lifang-vvd.github.io/gamez/">点击打开</a></button>
+				</span>
+								</div>
+								<div class="sHoverItem">
+									<img src="images/tmall.jpg">
+				<span class="sIntro">
+					<h2>仿电商网站</h2>
+
+					<button><a href="https://lifang-vvd.github.io/tmall/">点击打开</a></button>
+				</span>
+								</div>
+								<div class="sHoverItem">
+									<img src="images/wangyi.png">
+				<span class="sIntro">
+					<h2>网易6.0</h2>
+
+					<button><a href="https://lifang-vvd.github.io/wangyi/">点击打开</a></button>
+				</span>
+								</div>
+								<div class="sHoverItem">
+									<img src="images/yintai.png">
+				<span class="sIntro">
+					<h2>仿电商</h2>
+
+					<button><a href="https://lifang-vvd.github.io/yintai/">点击打开</a></button>
+				</span>
+								</div>
+								<div class="sHoverItem">
+									<img src="images/app.png">
+				<span class="sIntro">
+					<h2>等待更新</h2>
+
+					<button>等待。。。</button>
+				</span>
+								</div>
+							</div><!-- /container -->
+						</div>
+					</div>
+					
+					<div class="sl-slide bg-5" data-orientation="horizontal" data-slice1-rotation="-5" data-slice2-rotation="10" data-slice1-scale="2" data-slice2-scale="1">
+						<div class="sl-slide-inner">
+							<div class="deco deco-me"><img src="images/tou.jpg" alt=""></div>
+							<h2>About Me</h2>
+							<blockquote><p>我有一定的专业技能，有团队精神，能独立思考，工作态度认真负责。有模块化，组件化的思想。</br>有一定的学习能力，对新的框架
+								技术充满好奇。</br>前路漫漫，愿有良友携我同行，在成长的道路上，皆终有所得。</br>Call me  18335444925</p><cite>一个前端工程师自述</cite></blockquote>
+						</div>
+					</div>
+				</div><!-- /sl-slider -->
+				
+
+
+				<nav id="nav-dots" class="nav-dots">
+					<div class="nav-btnl"><img src="images/touxiang.jpg" alt=""></div>
+						<span class="nav-dot-current">我的首页</span>
+						<span>自我介绍</span>
+						<span>技能展示</span>
+						<span>作品介绍</span>
+						<span>有关于我</span>
+				</nav>
+
+			</div><!-- /slider-wrapper -->
+
+        </div>
+		<script src="js/jquery.min.js"></script>
+		<script type="text/javascript" src="js/jquery.ba-cond.min.js"></script>
+		<script type="text/javascript" src="js/jquery.slitslider.js"></script>
+		<script type="text/javascript">	
+			$(function() {
+			
+				var Page = (function() {
+
+					var $navArrows = $( '#nav-arrows' ),
+						$nav = $( '#nav-dots > span' ),
+						slitslider = $( '#slider' ).slitslider( {
+							onBeforeChange : function( slide, pos ) {
+
+								$nav.removeClass( 'nav-dot-current' );
+								$nav.eq( pos ).addClass( 'nav-dot-current' );
+
+							}
+						} ),
+
+						init = function() {
+
+							initEvents();
+							
+						},
+						initEvents = function() {
+
+							// add navigation events
+							$navArrows.children( ':last' ).on( 'click', function() {
+
+								slitslider.next();
+								return false;
+
+							} );
+
+							$navArrows.children( ':first' ).on( 'click', function() {
+								
+								slitslider.previous();
+								return false;
+
+							} );
+
+							$nav.each( function( i ) {
+							
+								$( this ).on( 'click', function( event ) {
+									
+									var $dot = $( this );
+									
+									if( !slitslider.isActive() ) {
+
+										$nav.removeClass( 'nav-dot-current' );
+										$dot.addClass( 'nav-dot-current' );
+									
+									}
+									
+									slitslider.jump( i + 1 );
+									return false;
+								
+								} );
+								
+							} );
+
+						};
+
+						return { init : init };
+
+				})();
+
+				Page.init();
+
+				/**
+				 * Notes: 
+				 * 
+				 * example how to add items:
+				 */
+
+				/*
+				
+				var $items  = $('<div class="sl-slide sl-slide-color-2" data-orientation="horizontal" data-slice1-rotation="-5" data-slice2-rotation="10" data-slice1-scale="2" data-slice2-scale="1"><div class="sl-slide-inner bg-1"><div class="sl-deco" data-icon="t"></div><h2>some text</h2><blockquote><p>bla bla</p><cite>Margi Clarke</cite></blockquote></div></div>');
+				
+				// call the plugin's add method
+				ss.add($items);
+
+				*/
+			
+			});
+		</script>
+		<script src="js/index.js"></script>
+		<script src="js/sHover.js"></script>
+	</body>
+</html>
